@@ -49,7 +49,7 @@ Game::Game(Game_Type type)
     decision_list[i] = _players[i]->split_or_steal(); 
   }
 
-  Records records = Records::instance();
+  Records& records = Records::instance();
   // Decide who won and update records
   if(decision_list[0] == Decision::steal && decision_list[1] == Decision::steal){
     records.update_record(_players[0]->get_name(), false);

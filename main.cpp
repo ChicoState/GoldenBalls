@@ -40,7 +40,7 @@ Game_Type select_game_type()
 
 void show_records()
 {
-    Records display = Records::instance();
+    Records& display = Records::instance();
     display.show_records();
 }
 
@@ -53,8 +53,6 @@ int get_menu_choice()
         cout << "1. Press 1 to play the game" << endl
              << "2. Press 2 to see records" << endl
              << "3. Press 3 to quit" << endl;
-
-        
         cin >> G_Menu;
 
         if( G_Menu < 1 || G_Menu > 3)
