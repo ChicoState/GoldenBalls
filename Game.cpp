@@ -54,19 +54,23 @@ Game::Game(Game_Type type)
   if(decision_list[0] == Decision::steal && decision_list[1] == Decision::steal){
     records.update_record(_players[0]->get_name(), false);
     records.update_record(_players[1]->get_name(), false);
+    cout<<"Both players stole, you both lose!\n";
   }
   else if(decision_list[0] == Decision::split && decision_list[1] == Decision::steal){
-    records.update_record(_players[0]->get_name(), true);
-    records.update_record(_players[0]->get_name(), true);
-    records.update_record(_players[1]->get_name(), false);
+    records.update_record(_players[1]->get_name(), true);
+    records.update_record(_players[1]->get_name(), true);
+    records.update_record(_players[0]->get_name(), false);
+    cout<<_players[1]->get_name()<<" stole and wins 2!\n";
   }
   else if(decision_list[0] == Decision::steal && decision_list[1] == Decision::split){
-    records.update_record(_players[0]->get_name(), false);
-    records.update_record(_players[1]->get_name(), true);
-    records.update_record(_players[1]->get_name(), true);
+    records.update_record(_players[1]->get_name(), false);
+    records.update_record(_players[0]->get_name(), true);
+    records.update_record(_players[0]->get_name(), true);
+    cout<<_players[0]->get_name()<<" stole and wins 2!\n";
   }
   else{ // both split
     records.update_record(_players[0]->get_name(), true);
     records.update_record(_players[1]->get_name(), true);
+    cout<<"Both players split, you both win!\n";
   }
 }
